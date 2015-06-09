@@ -1,0 +1,59 @@
+
+
+general {
+
+
+    colors = true
+    color_good      = '#88b090'
+    color_degraded  = '#ccdc90'
+    color_bad       = '#e89393'
+    interval = 1
+}
+
+
+order += "time"
+order += "volume master"
+order += "disk /"
+order += "ethernet eth0"
+order += "cpu_usage"
+order += "load"
+
+wireless wlan0 {
+        format_up = "W: (%quality at %essid) %ip"
+        format_down = "W: down"
+}
+
+ethernet eth0 {
+        # if you use %speed, i3status requires root privileges
+        format_up = "E: %ip (%speed)"
+	format_down = "E: down"
+}
+
+time {
+	format =  " %a %b %d, %Y %l:%M:%S "
+}
+
+load {
+	format = "  %1min "
+}
+
+cpu_usage {
+  format = " %usage "
+}
+
+cpu_temperature 0 {
+	format = " T: %degrees °C "
+}
+
+disk "/" {
+	format = " %free "
+}
+
+volume master {
+  format = "  %volume "
+  format_muted = "  %volume "
+  device = "default"
+  mixer = "Master"
+  mixer_idx = 0
+}
+
