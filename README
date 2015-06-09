@@ -1,0 +1,10 @@
+
+
+AwesomeWM 3.5 dependencies:
+	Power Arrow Theme 		https://github.com/esn89/powerarrow
+	Lua-OOCairo			https://gitorious.org/lua-oocairo/mainline
+	Awesome-Extra (Vicious) 	sudo aptitude install awesome-extra
+	Vain (For gaps/layouts)		https://github.com/copycat-killer/vain-again
+
+	Change username to match in rc.lua and theme.lua
+
