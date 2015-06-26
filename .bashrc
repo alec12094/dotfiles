@@ -31,7 +31,7 @@ if [[ $- == *i* ]]; then
 	cyan='\[\033[0;36m\]'
 	CYAN='\[\033[1;36m\]'
 	NC='\[\033[0m\]'
-	PS1="$red\u $RED@\h: $red[\w]\[$(tput sgr0)\]\n"
+	PS1="$cyan\u $CYAN@\h: $cyan[\w]\[$(tput sgr0)\]\n"
 fi
 
 # check the window size after each command and, if necessary,
@@ -59,9 +59,10 @@ if [ -x /usr/bin/dircolors ]; then
 	alias egrep='egrep --color=auto'
 fi
 
-
-#If I don't type sudo. Fuck.
-alias fuck='sudo $(history -p \!\!)' 
-
-
-
+alias makedocker="AUTO_GOPATH=1 ./hack/make.sh dynbinary"
+alias loadbinary="sudo systemctl stop docker
+	sudo rm /usr/bin/docker && sudo rm /usr/bin/dockerinit 
+	sudo cp bundles/latest/dynbinary/docker-1.*-dev /usr/bin/docker
+	sudo cp bundles/latest/dynbinary/dockerinit-1.*-dev /usr/bin/dockerinit
+	sudo systemctl daemon-reload
+	sudo systemctl restart docker"
