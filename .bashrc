@@ -14,6 +14,10 @@ fi
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1) /'
+}
+
 if [[ $- == *i* ]]; then
 	grey='\[\033[1;30m\]'
 	red='\[\e[38;5;172m\]'
@@ -31,7 +35,7 @@ if [[ $- == *i* ]]; then
 	cyan='\[\033[0;36m\]'
 	CYAN='\[\033[1;36m\]'
 	NC='\[\033[0m\]'
-	PS1="$cyan\u $CYAN@\h: $cyan[\w]\[$(tput sgr0)\]\n"
+	PS1="$CYAN\$(parse_git_branch)$CYAN\u:$cyan[\w]\[$(tput sgr0)\]\n"
 fi
 
 # check the window size after each command and, if necessary,
