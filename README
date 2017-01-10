@@ -8,3 +8,4 @@ AwesomeWM 3.5 dependencies:
 
 	Change username to match in rc.lua and theme.lua
 
+mv com.apple.Terminal.plist ~/Library/Preferences/com.apple.Terminal.plist
